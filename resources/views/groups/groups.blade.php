@@ -3,8 +3,18 @@
 
 @section('main_content')
  
- <h2> Users group</h2>
-
+       
+        
+      <div class="row clearfix page_header">
+      	<div class="col-md-6">
+      		 <h2> Users group</h2>
+      	</div>
+      	<div class="col-md-6 text-right">
+      	<a class="btn btn-info"href="{{url('groups/create')}}"><i class="fa fa-plus">
+      	 New group</i>
+      	</a>	
+      	</div>
+      </div>
                      <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
@@ -12,36 +22,36 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
+                         	
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                          <tr>
+                                            <th>ID</th>
+                                            <th>Title</th>
+                                            <th class="text-right">Actions </th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>ID</th>
+                                            <th>Title</th>
+                                            <th class="text-right">Actions</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
+                                        @foreach ($groups as $group)
                                         <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
+                                            <td>{{$group->id}}</td>
+                                            <td>{{$group->title}}</td>
+                                            <td class="text-right">
+                                            <form method="POST" action="{{url('groups/' . $group->id)}}" >
+                                             @csrf
+                                             @method('DELETE')
+                                             <button onclick="return confirm('Are you sure?')" type="submit" class="btn btn-danger" ><i class="fa fa-trash"> </i>Delete</button> 	
+                                            </form> 	                                         	
+                                            </td>
                                        </tr>
+                                       @endforeach
                                     </tbody>
                                 </table>
                             </div>

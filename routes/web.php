@@ -17,10 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('users', function () {
-    return view('users/users');
-});
+Route::get('groups', 'UserGroupsController@index');
+Route::get('groups/create', 'UserGroupsController@create');
+Route::post('groups', 'UserGroupsController@store');
+Route::delete('groups/{id}', 'UserGroupsController@destroy');
 
-Route::get('groups', function () {
-    return view('groups/groups');
-});
+
+Route::get('users', 'UsersController@index');
+
