@@ -22,6 +22,4 @@ Route::get('groups/create', 'UserGroupsController@create');
 Route::post('groups', 'UserGroupsController@store');
 Route::delete('groups/{id}', 'UserGroupsController@destroy');
 
-
-Route::get('users', 'UsersController@index');
-
+Route::resource('users','UsersController');
