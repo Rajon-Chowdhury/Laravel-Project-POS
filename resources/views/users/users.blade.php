@@ -50,14 +50,17 @@
                                         @foreach ($users as  $user)
                                         <tr>
                                             <td>{{ $user->id}}</td>
-                                            <td>{{ $user->group_id}}</td>
+                                            <td>{{ $user->group->title}}</td>
                                             <td>{{ $user->name}}</td>
                                             <td>{{ $user->email}}</td>
                                             <td>{{ $user->phone}}</td>
                                             <td>{{ $user->address}}</td>
                                             <td class="text-right">
-	
-                                            <form method="POST" action="{{url('users/' . $user->id)}}" >
+
+                                            <! action="{{url('users/' . $user->id)}}>
+	                                          
+
+                                            <form method="POST" action="{{route('users.destroy' ,['user'=> $user->id])}}" >
                                             <a class="btn btn-primary btn-sm" href="{{route('users.edit',['user'=>$user->id])}}">
                                              <i class="fa fa-edit">Edit</i>
                                             </a>                                               	
