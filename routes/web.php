@@ -23,3 +23,6 @@ Route::post('groups', 'UserGroupsController@store');
 Route::delete('groups/{id}', 'UserGroupsController@destroy');
 
 Route::resource('users','UsersController');
+
+
+Route::resource('categories','categoriesController');
