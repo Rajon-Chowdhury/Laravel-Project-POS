@@ -7,7 +7,7 @@
 
       <div class="row clearfix page_header">
         <div class="col-md-4">
-          <a class="btn btn-primary"href="{{url('users.index')}}"><i class="fa fa-arrow-left aria-hidden="true">
+          <a class="btn btn-primary"href="{{route('users.index')}}"><i class="fa fa-arrow-left aria-hidden="true">
          Back </i></a>
         </div>
       	<div class="col-md-8 text-right">

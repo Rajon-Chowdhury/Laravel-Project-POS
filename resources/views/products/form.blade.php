@@ -13,6 +13,7 @@
     </div>
 @endif
 
+
                        
                               <h2> {{$headline}}</h2>
                            
@@ -25,47 +26,47 @@
                         </div>
                         <div class="card-body">
                          <div class="row justify-content-md-center">
-                         <div class="col-md-8">
+                         <div class="col-md-10">
                  		       @if($mode=='edit')
-                            {!! Form::model($user,['route' => ['users.update',$user->id],'method' => 'put']) !!}
+                            {!! Form::model($product,['route' => ['products.update',$product->id],'method' => 'put']) !!}
                            @else
-                             {!! Form::open(['route' => 'users.store','method' => 'post']) !!}
+                             {!! Form::open(['route' => 'products.store','method' => 'post']) !!}
                            @endif
                           
                             
                                 <div class="form-group row">
-                                <label for="name" class="col-sm-3 col-form-label">User Group <span class="text-danger">*</span></label>
-                                <div class="col-sm-9">
-                                  {{form::select('group_id',$groups,NULL,['class'=>'form-control','id'=>'group','placeholder'=>'Group'])}}
+                                <label for="name" class="col-sm-2 text-right col-form-label">Product Category <span class="text-danger">*</span></label>
+                                <div class="col-sm-10">
+                                  {{form::select('category_id',$categories,NULL,['class'=>'form-control','id'=>'category','placeholder'=>'Category'])}}
                                 </div>
                                </div>
                  
 			
                                 <div class="form-group row">
-                                <label for="name" class="col-sm-3 col-form-label">Name<span class="text-danger">*</span></label>
-                                <div class="col-sm-9">
-                                  {{form::text('name',NULL,['class'=>'form-control','id'=>'name','placeholder'=>'Name'])}}
+                                <label for="title" class="col-sm-2 text-right col-form-label">Title<span class="text-danger">*</span></label>
+                                <div class="col-sm-10">
+                                  {{form::text('title',NULL,['class'=>'form-control','id'=>'title','placeholder'=>'title'])}}
                                 </div>
                                </div>
 
                                 <div class="form-group row">
-                                <label for="phone" class="col-sm-3 col-form-label">Phone<span class="text-danger">*</span></label>
-                                <div class="col-sm-9">
-                                  {{form::text('phone',NULL,['class'=>'form-control','id'=>'phone','placeholder'=>'Phone'])}}
+                                <label for="description" class="col-sm-2 text-right col-form-label">Description<span class="text-danger">*</span></label>
+                                <div class="col-sm-10">
+                                  {{form::textarea('description',NULL,['class'=>'form-control','id'=>'description','placeholder'=>'Description'])}}
                                 </div>
                                </div>    
 
                                 <div class="form-group row">
-                                <label for="email" class="col-sm-3 col-form-label">Email</label>
-                                <div class="col-sm-9">
-                                  {{form::text('email',NULL,['class'=>'form-control','id'=>'email','placeholder'=>'Email'])}}
+                                <label for="cost_price" class="col-sm-2 text-right col-form-label">Cost Price</label>
+                                <div class="col-sm-10">
+                                  {{form::text('cost_price',NULL,['class'=>'form-control','id'=>'cost_price','placeholder'=>'Cost Price'])}}
                                 </div>
                                </div>        
 
                                 <div class="form-group row">
-                                <label for="address" class="col-sm-3 col-form-label">Address</label>
-                                <div class="col-sm-9">
-                                  {{form::text('address',NULL,['class'=>'form-control','id'=>'address','placeholder'=>'Address'])}}
+                                <label for="price" class="col-sm-2 text-right col-form-label">Sale price</label>
+                                <div class="col-sm-10">
+                                  {{form::text('price',NULL,['class'=>'form-control','id'=>'price','placeholder'=>'Sale Price'])}}
                                 </div>
                                </div>
                               <div class="mt-3 text-right">
